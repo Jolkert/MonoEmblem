@@ -1,0 +1,45 @@
+{
+	"TilesetId": "test",
+	"TileData": {
+		"plains": {
+			"MovementCost": 1
+		},
+		"forest": {
+			"MovementCost": 2,
+			"AvoBonus": 20
+		},
+		"fort": {
+			"MovementCost": 2,
+			"AvoBonus": 20,
+			"DefBonus": 2,
+			"ResBonus": 2,
+			"HealPercent": 20
+		},
+		"sand": {
+			"MovementCost": 2,
+			"AvoBonus": -10
+		},
+		"water": {
+			"MovementCost": 1000
+		}
+	},
+	"Map": [
+		"_____T______#_______",
+		"_______T______T_T___",
+		"__T_____#____T_TTTT_",
+		"__TT__________TTTTT_",
+		"_TTT_________T__TTT_",
+		"__T_T__________T____",
+		"______T_____________",
+		"____#_______T_______",
+		"_T___T__T__T_T___#..",
+		"__________________.~"
+	],
+	"Key": {
+		"_": "plains",
+		"T": "forest",
+		"#": "fort",
+		".": "sand",
+		"~": "water"
+	}
+}

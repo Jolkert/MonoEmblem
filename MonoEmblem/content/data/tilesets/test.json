@@ -1,0 +1,14 @@
+﻿{
+	"TextureId": "test",
+	"TileResolution": {
+		"X": 16,
+		"Y": 16
+	},
+	"TileIds": [
+		"plains",
+		"forest",
+		"fort",
+		"sand",
+		"water"
+	]
+}
