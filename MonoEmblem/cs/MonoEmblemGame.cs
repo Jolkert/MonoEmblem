@@ -116,6 +116,8 @@ public partial class MonoEmblemGame : Game
 	protected override void Update(GameTime gameTime)
 	{// dont draw here
 		ProcessInput();
+		_testMap.Highlight(_cursor.Position);
+
 		base.Update(gameTime);
 	}
 	private void ProcessInput()
@@ -146,6 +148,16 @@ public partial class MonoEmblemGame : Game
 			_cursor.Position += new Point(0, 1);
 		if (Input.IsKeyRising(Keys.D))
 			_cursor.Position += new Point(1, 0);
+
+		// update range
+		if (Input.IsKeyRising(Keys.OemPlus))
+			_testMap.TestRange = _testMap.TestRange.MaxUp();
+		if (Input.IsKeyRising(Keys.OemMinus))
+			_testMap.TestRange = _testMap.TestRange.MaxDown();
+		if (Input.IsKeyRising(Keys.OemOpenBrackets))
+			_testMap.TestRange = _testMap.TestRange.MinUp();
+		if (Input.IsKeyRising(Keys.OemCloseBrackets))
+			_testMap.TestRange = _testMap.TestRange.MinDown();
 
 		if (Input.IsKeyRising(Keys.Space))
 			_testMap.Interact(_cursor.Position);

@@ -85,6 +85,7 @@ public class Map : IEnumerable<MapTile>, IDeserializable<Map>, Graphics.IDrawabl
 		return map;
 	}
 
+	public WeaponRange TestRange = 0;
 	public void Interact(Point pos)	
 	{
 		if (!GridBounds.Contains(pos))
@@ -96,9 +97,15 @@ public class Map : IEnumerable<MapTile>, IDeserializable<Map>, Graphics.IDrawabl
 			SelectedTile = tile;
 			Program.GameInstance.Logger.Debug($"Selected tile at ({pos})");
 		}
+	}
 
+	public void Highlight(Point pos)
+	{
 		ClearAllHighlights();
-		foreach (var tile in GetPointsInRangeOf(pos, new WeaponRange(1, 2)))
+		foreach (var point in GetPointsInRangeOf(pos, TestRange))
+		{
+			GetTile(point).Highlight(Color.Cyan);
+		}
 	}
 	public void Deselect()
 	{
